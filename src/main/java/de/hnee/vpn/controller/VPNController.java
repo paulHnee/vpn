@@ -20,7 +20,6 @@ public class VPNController {
         this.vpnService = vpnService;
     }
 
-    @PostMapping("/public-key")
     public ResponseEntity<?> savePublicKey(@RequestBody Map<String, String> request) {
         String publicKey = request.get("publicKey");
         vpnService.savePublicKey(publicKey);

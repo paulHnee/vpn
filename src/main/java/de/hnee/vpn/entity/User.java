@@ -2,30 +2,16 @@ package de.hnee.vpn.entity;
 
 import jakarta.persistence.*;
 
-
 @Entity
+@Table
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
-    @Column(unique = true, nullable = false)
     private String username;
-
-    @Column(nullable = false)
     private String password;
 
-    // Constructors
-    public User() {
-    }
-
-    public User(String username, String password) {
-        this.username = username;
-        this.password = password;
-    }
-
-    // Getters and Setters
     public Long getId() {
         return id;
     }
@@ -44,5 +30,9 @@ public class User {
 
     public String getPassword() {
         return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
