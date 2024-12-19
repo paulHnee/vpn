@@ -15,27 +15,31 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
 
     private final CustomUserDetails customUserDetails;
+
     public SecurityConfig(CustomUserDetails customUserDetails) {
         this.customUserDetails = customUserDetails;
     }
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        // Enabling CORS and disabling CSRF for REST API
         http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(request -> request
-                        .requestMatchers("/login")
-                        .permitAll()
-                        .anyRequest()
-                        .authenticated())
+                        .requestMatchers("/api/auth/login").permitAll()  // Allow login API
+                        .requestMatchers("/login").permitAll() // Allow login page
+                        .anyRequest().authenticated())  // Protect all other endpoints
                 .formLogin(form -> form
                         .loginProcessingUrl("/login")
                         .defaultSuccessUrl("/vpn", true)
                         .permitAll())
                 .logout(logout -> logout
                         .logoutSuccessUrl("/login")
-                        .permitAll()).userDetailsService(customUserDetails);
+                        .permitAll())
+                .userDetailsService(customUserDetails); // Your custom user details service
+
         return http.build();
     }
+
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
