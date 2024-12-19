@@ -1,6 +1,6 @@
 package de.hnee.vpn.service;
 
-import de.hnee.vpn.enitiy.VPNEntry;
+import de.hnee.vpn.entity.VPNEntry;
 import de.hnee.vpn.repository.VPNRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

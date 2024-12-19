@@ -1,6 +1,6 @@
 package de.hnee.vpn.controller;
 
-import de.hnee.vpn.enitiy.VPNEntry;
+import de.hnee.vpn.entity.VPNEntry;
 import de.hnee.vpn.service.VPNService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

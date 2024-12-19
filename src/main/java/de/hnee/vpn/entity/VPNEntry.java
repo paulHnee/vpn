@@ -1,4 +1,4 @@
-package de.hnee.vpn.enitiy;
+package de.hnee.vpn.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

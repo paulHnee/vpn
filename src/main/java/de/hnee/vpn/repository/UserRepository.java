@@ -1,6 +1,6 @@
 package de.hnee.vpn.repository;
 
-import de.hnee.vpn.enitiy.User;
+import de.hnee.vpn.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
